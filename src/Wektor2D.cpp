@@ -1,7 +1,7 @@
 #include "Wektor2D.hh"
 
 
-
+/*
 std::istream& Wektor2D::operator >> (std::istream &Strm, Wektor2D &Wek)
 {
 	Strm << "Enter 'x' coordinate: " << std::endl;	
@@ -19,4 +19,4 @@ std::ostream& Wektor2D::operator << (std::ostream &Strm, const Wektor2D &Wek)
 	Strm << "[" << Wek.x << "," << Wek.y << "]" << endl;
 
 	return Strm;
-}
+} */

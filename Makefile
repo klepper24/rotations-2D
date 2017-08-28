@@ -1,7 +1,7 @@
 #
 #  To sa opcje dla kompilacji
 #
-CXXFLAGS=-g -Iinc -Wall -pedantic -std=c++0x
+CXXFLAGS=-g -Iinc -Wall -Werror -Wextra -pedantic -std=c++11
 
 __start__: obroty_2D
 	./obroty_2D

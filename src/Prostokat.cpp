@@ -1,6 +1,6 @@
 #include "Prostokat.hh"
 
-
+/*
 std::ostream& operator << (std::ostream &Strm, const Prostokat &Pr)
 {
 		
@@ -8,4 +8,4 @@ std::ostream& operator << (std::ostream &Strm, const Prostokat &Pr)
 			<< Pr.arr[1][0] << " " << Pr.arr[1][1] << endl;
 
 	return Strm;
-}
+}*/
