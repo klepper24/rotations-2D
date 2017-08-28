@@ -103,7 +103,7 @@ bool PrzykladZapisuWspolrzednychDoPliku( const char  *sNazwaPliku,
   return !StrmPlikowy.fail();
 }
 
-
+/*
 
 int main()
 {
@@ -146,4 +146,32 @@ int main()
   Lacze.Rysuj(); // <- Tutaj gnuplot rysuje, to co zapisaliśmy do pliku
   cout << "Wprowadz znak i naciśnij ENTER, aby kontynuowac" << endl;
   cin >> Znak;
+}
+
+*/
+
+template<int N, int M>
+class Matrix
+{
+	double arr[N][M];
+public:
+	Matrix() = default;
+	Matrix(std::initializer_list<double> lista)
+	{
+		if (lista.size() > N * M)		
+			throw std::runtime_error("to ja");
+
+		unsigned int licznik = 0u;
+		for(auto it : lista)
+		{
+			arr[licznik / M][licznik % M] = it;
+			++licznik;
+		}
+	}
+};
+
+int main()
+{
+	Macierz2x2 mac1;
+	Matrix<2, 3> mac2({3.5, 2.5, 4.5});
 }
