@@ -104,7 +104,6 @@ bool PrzykladZapisuWspolrzednychDoPliku( const char  *sNazwaPliku,
 }
 
 
-
 int main()
 {
   char                  Znak;
@@ -177,4 +176,8 @@ int main()
 {
 	Macierz2x2 mac1;
 	Matrix<2, 3> mac2({3.5, 2.5, 4.5});
+
 }*/
+
+}
+

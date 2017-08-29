@@ -21,6 +21,7 @@ class Macierz2x2 {
 };
 
 
-std::ostream& operator << (std::ostream &Strm, const Macierz2x2 &Mac);
+//std::ostream& operator << (std::ostream &Strm, const Macierz2x2 &Mac);
+
 
 #endif
