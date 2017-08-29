@@ -9,7 +9,7 @@ Macierz2x2::Macierz2x2(double arg)
 	arr[1][1] = cos(arg);
 }
 
-/*
+
 
 std::ostream& operator << (std::ostream &Strm, const Macierz2x2 &Mac)
 {
@@ -19,12 +19,3 @@ std::ostream& operator << (std::ostream &Strm, const Macierz2x2 &Mac)
 	return Strm;
 }
 
- *  Tutaj nalezy zdefiniowac odpowiednie metody
- *  klasy Macierz2x2, ktore zawieraja wiecej kodu
- *  niz dwie linijki.
- *  Mniejsze metody mozna definiwac w ciele klasy.
- */
-
-
-
-//kffjf

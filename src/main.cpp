@@ -103,7 +103,7 @@ bool PrzykladZapisuWspolrzednychDoPliku( const char  *sNazwaPliku,
   return !StrmPlikowy.fail();
 }
 
-/*
+
 
 int main()
 {
@@ -148,7 +148,10 @@ int main()
   cin >> Znak;
 }
 
-*/
+
+
+/*
+EXAMPLE OF TEMPLATE CLASS FOR MATRIX OF DIFFERENT DIMENSIONS
 
 template<int N, int M>
 class Matrix
@@ -174,4 +177,4 @@ int main()
 {
 	Macierz2x2 mac1;
 	Matrix<2, 3> mac2({3.5, 2.5, 4.5});
-}
+}*/
