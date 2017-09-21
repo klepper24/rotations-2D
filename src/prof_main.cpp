@@ -67,7 +67,7 @@ void PrzykladZapisuWspolrzednychDoStrumienia( ostream&     StrmWy,
  *                          wspolrzędne punktów.
  * \param[in] Przesuniecie - ten parameter jest tylko po to, aby pokazać
  *                          mozliwosc zmiany wspolrzednych i prostokata
- *                          i zmiane jego polorzenia na okienku graficznym
+ *                          i zmiane jego polozenia na okienku graficznym
  *                         rysownym przez gnuplota.
  * \retval true - gdy operacja zapisu powiodła się,
  * \retval false - w przypadku przeciwnym.

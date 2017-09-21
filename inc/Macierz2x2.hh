@@ -1,9 +1,15 @@
+
 #ifndef MACIERZ2X2_HH
 #define MACIERZ2X2_HH
 
 
 #include <iostream>
+#include <iomanip>
 #include <cmath>
+//#define PI 3.14159265 
+constexpr double PI = atan2(0,-1);
+
+using namespace std; //tylko w cpp!!
 
 //template <int n, int m>
 class Macierz2x2 {
@@ -16,16 +22,15 @@ class Macierz2x2 {
 	//Macierz2x2() {}
 	~Macierz2x2() {}
 	Macierz2x2(double arg);
-	/*
-	double& operator () (int a, int b)
+	//operator () do odczytywania wartosci z macierzy, do zapisywania nalezaloby zrobic kolejny operator, patrz: 
+	double operator () (unsigned int a, unsigned int b) const
 	{
-		return sth;	
+		return mac[a][b];	
 	}
-	*/	
 
 	friend std::ostream& operator << (std::ostream &Strm, const Macierz2x2 &Macierz);
 
-	double get_mac (int a, int b)
+	double get_mac(int a, int b) const
 	{
 		return mac[a][b];	
 	}
