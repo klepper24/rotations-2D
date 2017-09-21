@@ -3,27 +3,20 @@
 
 Macierz2x2::Macierz2x2(double arg)
 {
-	arr[0][0] = cos(arg);
-	arr[0][1] = -sin(arg);
-	arr[1][0] = sin(arg);
-	arr[1][1] = cos(arg);
+	mac[0][0] = cos(arg);
+	mac[0][1] = -sin(arg);
+	mac[1][0] = sin(arg);
+	mac[1][1] = cos(arg);
 }
 
 
-/*
-
-std::ostream& operator << (std::ostream &Strm, const Macierz2x2 &Mac)
+std::ostream& operator << (std::ostream &Strm, const Macierz2x2 &Macierz)
 {
-		Strm << Mac.arr[0][0] << " " << Mac.arr[0][1] << endl
-				<< Mac.arr[1][0] << " " << Mac.arr[1][1] << endl;
+		Strm << Macierz.mac[0][0] << " " << Macierz.mac[0][1] << std::endl
+				<< Macierz.mac[1][0] << " " << Macierz.mac[1][1] << std::endl;
 
 	return Strm;
 }
 
- *  Tutaj nalezy zdefiniowac odpowiednie metody
- *  klasy Macierz2x2, ktore zawieraja wiecej kodu
- *  niz dwie linijki.
- *  Mniejsze metody mozna definiwac w ciele klasy.
- */
 
 

@@ -8,7 +8,7 @@ __start__: obroty_2D
 
 obroty_2D: obj obj/main.o obj/Prostokat.o obj/Macierz2x2.o obj/Wektor2D.o\
            obj/lacze_do_gnuplota.o
-	g++ -Wall -pedantic -std=c++0x -o obroty_2D obj/main.o obj/Wektor2D.o\
+	g++ -Wall -pedantic -std=c++11 -o obroty_2D obj/main.o obj/Wektor2D.o\
                         obj/Macierz2x2.o obj/Prostokat.o obj/lacze_do_gnuplota.o
 
 obj:

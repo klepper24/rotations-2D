@@ -9,19 +9,28 @@
 class Macierz2x2 {
 
 
-	double arr[2][2];
+	double mac[2][2];
 
   public:
 
 	//Macierz2x2() {}
 	~Macierz2x2() {}
 	Macierz2x2(double arg);
+	/*
+	double& operator () (int a, int b)
+	{
+		return sth;	
+	}
+	*/	
 
+	friend std::ostream& operator << (std::ostream &Strm, const Macierz2x2 &Macierz);
 
+	double get_mac (int a, int b)
+	{
+		return mac[a][b];	
+	}
 };
 
-
-//std::ostream& operator << (std::ostream &Strm, const Macierz2x2 &Mac);
 
 
 #endif

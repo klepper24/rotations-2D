@@ -7,15 +7,17 @@
 
 class Prostokat {
 
-	Wektor2D arr[2][2];
+	Wektor2D pro[2][2];
 	
   public:
-   
+
+   friend std::ostream& operator << ( std::ostream &Strm, const Prostokat &Pr);
+
 };
 
 
 
-std::ostream& operator << ( std::ostream &Strm, const Prostokat &Pr);
+
 
 
 #endif

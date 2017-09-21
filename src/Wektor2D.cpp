@@ -1,22 +1,30 @@
 #include "Wektor2D.hh"
 
 
-/*
-std::istream& Wektor2D::operator >> (std::istream &Strm, Wektor2D &Wek)
+
+std::istream& operator >> (std::istream &Strm, Wektor2D &Wektor)
 {
-	Strm << "Enter 'x' coordinate: " << std::endl;	
-	Strm >> Wek.x;
-	Strm << "Enter 'y' coordinate: " << std::endl;	
-	Strm >> Wek.y;
+	Strm >> Wektor.wek[0];	
+	Strm >> Wektor.wek[1];
 
 	return Strm;
 }
 
 
-std::ostream& Wektor2D::operator << (std::ostream &Strm, const Wektor2D &Wek)
+std::ostream& operator << (std::ostream &Strm, const Wektor2D &Wektor)
 {
 
-	Strm << "[" << Wek.x << "," << Wek.y << "]" << endl;
+	Strm << "[" << Wektor.wek[0] << "," << Wektor.wek[1] << "]" << std::endl;
 
 	return Strm;
-} */
+} 
+
+
+Wektor2D operator * (Macierz2x2 macierz, Wektor2D wektor)
+{
+	Wektor2D prim;		
+	prim.wek[0] = macierz.get_mac(0,0) * wektor[0] + macierz.get_mac(0,1) * wektor[1];
+	prim.wek[1] = macierz.get_mac(1,0) * wektor[0] + macierz.get_mac(1,1) * wektor[1];
+	
+	return prim;
+}
