@@ -13,11 +13,8 @@ using namespace std; //tylko w cpp!!
 
 //template <int n, int m>
 class Macierz2x2 {
-
-
-	double mac[2][2];
-
-  public:
+	
+public:
 
 	//Macierz2x2() {}
 	~Macierz2x2() {}
@@ -28,12 +25,19 @@ class Macierz2x2 {
 		return mac[a][b];	
 	}
 
-	friend std::ostream& operator << (std::ostream &Strm, const Macierz2x2 &Macierz);
-
+	friend std::ostream& operator << (std::ostream &Strm, const Macierz2x2 &macierz);
+	//funkcja niepotrzebna ze wzgledu na przeciazony operator funkcyjny ()
+	/*
 	double get_mac(int a, int b) const
 	{
 		return mac[a][b];	
-	}
+	}*/
+
+private:
+
+	static constexpr unsigned int rozmiar = 2;  
+	double mac[rozmiar][rozmiar];
+
 };
 
 

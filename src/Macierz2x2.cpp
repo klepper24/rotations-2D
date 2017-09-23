@@ -10,14 +10,15 @@ Macierz2x2::Macierz2x2(double arg)
 }
 
 
-std::ostream& operator << (std::ostream &Strm, const Macierz2x2 &Macierz)
+std::ostream& operator << (std::ostream &Strm, const Macierz2x2 &macierz)
 {
 		
+	for(unsigned int i = 0; i < macierz.rozmiar; ++i)
+		for(unsigned int j = 0; j < macierz.rozmiar; ++j)
+  			Strm << setw(16) << fixed << setprecision(10) << macierz.mac[i][j];
 
-  Strm << setw(16) << fixed << setprecision(10) << Macierz.mac[0][0]
-       << setw(16) << fixed << setprecision(10) << Macierz.mac[0][1]
-  	   << setw(16) << fixed << setprecision(10) << Macierz.mac[1][0] 
-       << setw(16) << fixed << setprecision(10) << Macierz.mac[1][1] << endl;
+  	  
+    cout << endl;
 
 
 	return Strm;

@@ -2,9 +2,12 @@
 
 Wektor2D Wektor2D::operator + (const Wektor2D& wektor) const
 {
-	Wektor2D temp;//zrobic petle
-	temp.wek[0] = wek[0] + wektor.wek[0];
-	temp.wek[1] = wek[1] + wektor.wek[1];
+	Wektor2D temp;
+	for(unsigned int i = 0; i < rozmiar; ++i)
+	{
+		temp.wek[i] = wek[i] + wektor.wek[i];
+	}
+
 	
 	return temp;
 }
@@ -12,9 +15,11 @@ Wektor2D Wektor2D::operator + (const Wektor2D& wektor) const
 
 Wektor2D Wektor2D::operator - (const Wektor2D& wektor) const
 {
-	Wektor2D temp;  ///zrobic petle!!
-	temp.wek[0] = wek[0] - wektor.wek[0];
-	temp.wek[1] = wek[1] - wektor.wek[1];
+	Wektor2D temp;  
+	for(unsigned int i = 0; i < rozmiar; ++i)
+	{
+		temp.wek[i] = wek[i] - wektor.wek[i];
+	}
 	
 	return temp;
 }
@@ -31,28 +36,31 @@ bool Wektor2D::operator == (const Wektor2D& wektor) const
 
 Wektor2D operator * (const Macierz2x2& macierz, const Wektor2D& wektor)
 {
-	Wektor2D prim; //petla w petli
-	prim.wek[0] = macierz(0,0) * wektor[0] + macierz.operator() (0,1) * wektor[1];
-	prim.wek[1] = macierz(1,0) * wektor[0] + macierz(1,1) * wektor[1];
+	Wektor2D prim;
+
+	for(unsigned int i = 0; i < wektor.rozmiar; ++i)
+		for(unsigned int j = 0; j < wektor.rozmiar; ++j)
+				prim.wek[i] += macierz(i,j) * wektor[j];
+	
 	
 	return prim;
 }
 
 
-std::istream& operator >> (std::istream &Strm, Wektor2D &Wektor)
+std::istream& operator >> (std::istream &Strm, Wektor2D &wektor)
 {
-	Strm >> Wektor.wek[0] >> Wektor.wek[1];
+	for(unsigned int i = 0; i < wektor.rozmiar; ++i)	
+		Strm >> wektor.wek[i];
 
 	return Strm;
 }
 
 
-std::ostream& operator << (std::ostream &Strm, const Wektor2D &Wektor)
+std::ostream& operator << (std::ostream &Strm, const Wektor2D &wektor)
 {
 
-	  Strm << setw(16) << fixed << setprecision(10) << Wektor.wek[0] 
-       << setw(16) << fixed << setprecision(10) << Wektor.wek[1] << endl;
-	//Strm << "[" << Wektor.wek[0] << "," << Wektor.wek[1] << "]" << std::endl;
+	  Strm << setw(16) << fixed << setprecision(10) << wektor.wek[0] 
+       << setw(16) << fixed << setprecision(10) << wektor.wek[1] << endl;
 
 	return Strm;
 } 

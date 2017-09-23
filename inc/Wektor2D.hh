@@ -37,8 +37,8 @@ public:
 	Wektor2D operator - (const Wektor2D& wektor) const;
 	bool operator == (const Wektor2D& wektor) const;
 	friend Wektor2D operator * (const Macierz2x2& macierz, const Wektor2D& wektor);	
-	friend std::istream& operator >> (std::istream &Strm, Wektor2D &Wektor);
-	friend std::ostream& operator << (std::ostream &Strm, const Wektor2D &Wektor);
+	friend std::istream& operator >> (std::istream &Strm, Wektor2D &wektor);
+	friend std::ostream& operator << (std::ostream &Strm, const Wektor2D &wektor);
 
 
 private:
