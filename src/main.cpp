@@ -6,36 +6,13 @@
 #include "Prostokat.hh"
 #include "lacze_do_gnuplota.hh"
 
-using namespace std;
 
-/*!
- * Przyklad zapisu wspolrzednych zbioru punktow do strumienia wyjściowego.
- * Dane sa odpowiednio sformatowane, tzn. przyjęto notację stałoprzecinkową
- * z dokładnością do 10 miejsca po przecinku. Szerokość wyświetlanego pola 
- * to 16 miejsc, sposób wyrównywania - do prawej strony.
- * \param[in] StrmWy - strumien wyjsciowy, do ktorego maja zostac zapisane
- *                     kolejne wspolrzedne.
- * \param[in] Przesuniecie - ten parameter jest tylko po to, aby pokazać
- *                          mozliwosc zmiany wspolrzednych i prostokata
- *                          i zmiane jego polorzenia na okienku graficznym
- *                         rysownym przez gnuplota.
- * \retval true - gdy operacja zapisu powiodła się,
- * \retval false - w przypadku przeciwnym.
- */
-void zapisWspolrzednychDoStrumienia(std::ostream& StrmWy, Prostokat &Pr, double Przesuniecie = 0.0)
+
+void zapisWspolrzednychDoStrumienia(std::ostream& StrmWy, Prostokat &Pr)
 {
 
-
-  StrmWy << setw(16) << fixed << setprecision(10) << Pr.p1[0] + Przesuniecie
-         << setw(16) << fixed << setprecision(10) << Pr.p1[1] + Przesuniecie << endl;
-  StrmWy << setw(16) << fixed << setprecision(10) << Pr.p2[0] + Przesuniecie 
-         << setw(16) << fixed << setprecision(10) << Pr.p2[1] + Przesuniecie << endl;
-  StrmWy << setw(16) << fixed << setprecision(10) << Pr.p3[0] + Przesuniecie 
-         << setw(16) << fixed << setprecision(10) << Pr.p3[1] + Przesuniecie << endl;
-  StrmWy << setw(16) << fixed << setprecision(10) << Pr.p4[0] + Przesuniecie 
-         << setw(16) << fixed << setprecision(10) << Pr.p4[1] + Przesuniecie << endl;
-  StrmWy << setw(16) << fixed << setprecision(10) << Pr.p1[0] + Przesuniecie
-         << setw(16) << fixed << setprecision(10) << Pr.p1[1] + Przesuniecie << endl; 
+	StrmWy << Pr;
+	StrmWy << Pr.punkty[0] << std::endl;
                              // Jeszcze raz zapisujemy pierwszy punkt,
                              // aby gnuplot narysowal zamkniętą linię.
 }
@@ -54,18 +31,18 @@ void zapisWspolrzednychDoStrumienia(std::ostream& StrmWy, Prostokat &Pr, double 
  * \retval true - gdy operacja zapisu powiodła się,
  * \retval false - w przypadku przeciwnym.
  */
-bool zapisWspolrzednychDoPliku(const char *sNazwaPliku, Prostokat &Pr, double Przesuniecie = 0.0)
+bool zapisWspolrzednychDoPliku(const char *sNazwaPliku, Prostokat &Pr)
 {
-  ofstream StrmPlikowy;
+  std::ofstream StrmPlikowy;
 
   StrmPlikowy.open(sNazwaPliku);
   if (!StrmPlikowy.is_open())  {
-    cerr << ":(  Operacja otwarcia do zapisu \"" << sNazwaPliku << "\"" << endl
-	 << ":(  nie powiodla sie." << endl;
+    std::cerr << ":(  Operacja otwarcia do zapisu \"" << sNazwaPliku << "\"" << std::endl
+	 << ":(  nie powiodla sie." << std::endl;
     return false;
   }
 
-  zapisWspolrzednychDoStrumienia(StrmPlikowy, Pr, Przesuniecie);
+  zapisWspolrzednychDoStrumienia(StrmPlikowy, Pr);
 
   StrmPlikowy.close();
   return !StrmPlikowy.fail();
@@ -74,14 +51,14 @@ bool zapisWspolrzednychDoPliku(const char *sNazwaPliku, Prostokat &Pr, double Pr
 
 void obracanieProstokata(Prostokat& pro)
 {
-	cout << "Podaj wartosc kata obrotu w stopniach: " << endl;
+	std::cout << "Podaj wartosc kata obrotu w stopniach: " << std::endl;
 	float kat;	
-	cin >> kat;
+	std::cin >> kat;
 	Macierz2x2 mac1(kat);
 
-	cout << "Ile razy operacja obrotu ma byc powtorzona?" << endl;
+	std::cout << "Ile razy operacja obrotu ma byc powtorzona?" << std::endl;
 	unsigned int ile = 0;
-	cin >> ile;
+	std::cin >> ile;
 	for(unsigned int i = 0; i < ile; ++i)
 		pro.obroc(mac1);
 		
@@ -90,10 +67,10 @@ void obracanieProstokata(Prostokat& pro)
 
 void przesuwanieProstokata(Prostokat& pro)
 {
-	cout << "Wprowadz wspolrzedne wektora translacji w postaci dwoch liczb, tzn. wspolrzednej x oraz wspolrzednej y: " << endl;
+	std::cout << "Wprowadz wspolrzedne wektora translacji w postaci dwoch liczb, tzn. wspolrzednej x oraz wspolrzednej y: " << std::endl;
 
 	Wektor2D wek;
-	cin >> wek;
+	std::cin >> wek;
 	
 	pro.przesun(wek);
 }
@@ -101,7 +78,7 @@ void przesuwanieProstokata(Prostokat& pro)
 
 void wyswietlanieWspolrzednych(Prostokat& pro)
 {
-	cout << pro;
+	std::cout << pro;
 }
 
 
@@ -112,20 +89,21 @@ void sprawdzenieBokow(Prostokat& pro)
 
 void wyswietlMenu()
 {
-		cout << endl
-			 << "o - obrot prostokata o zadany kat" << endl
-			 << "p - przesuniecie prostokota o zadany wektor" << endl
-			 << "w - wyswietlenie wspolrzednych wierzcholkow" << endl
-			 << "s - sprawdzenie dlugosci przeciwleglych bokow" << endl
-			 << "m - wyswietl menu" << endl
-			 << "k - koniec dzialania programu" << endl;
+		std::cout << std::endl
+			 << "o - obrot prostokata o zadany kat" << std::endl
+			 << "p - przesuniecie prostokota o zadany wektor" << std::endl
+			 << "w - wyswietlenie wspolrzednych wierzcholkow" << std::endl
+			 << "s - sprawdzenie dlugosci przeciwleglych bokow" << std::endl
+			 << "m - wyswietl menu" << std::endl
+			 << "k - koniec dzialania programu" << std::endl;
 }
 
 
 int main()
 {
 	//getopt do robienia menu - poczytać!!!
-	Prostokat pro1{{30,40},{100,40},{100,100},{30, 100}};
+	Prostokat pro1{Wektor2D(30,40),Wektor2D(30,100),Wektor2D(100,100),Wektor2D(100, 40)};
+
 	PzG::LaczeDoGNUPlota  Lacze;  // Ta zmienna jest potrzebna do wizualizacji
                                 // rysunku prostokata
 
@@ -153,19 +131,19 @@ int main()
 	while(wybor != 'k')
 	{
 
-		cout << "Twoj wybor?\t";
-		cin >> wybor;
+		std::cout << "Twoj wybor?\t";
+		std::cin >> wybor;
 
 		switch(wybor)
 		{
 			case 'o': 	obracanieProstokata(pro1);
-						zapisWspolrzednychDoStrumienia(cout,pro1);
+						zapisWspolrzednychDoStrumienia(std::cout,pro1);
   						if (!zapisWspolrzednychDoPliku("prostokat.dat",pro1)) return 1;
   						Lacze.Rysuj(); // <- Tutaj gnuplot rysuje, to co zapisaliśmy do pliku
 						break;
 
 			case 'p':   przesuwanieProstokata(pro1);
-						zapisWspolrzednychDoStrumienia(cout,pro1);
+						zapisWspolrzednychDoStrumienia(std::cout,pro1);
   						if (!zapisWspolrzednychDoPliku("prostokat.dat",pro1)) return 1;
   						Lacze.Rysuj(); // <- Tutaj gnuplot rysuje, to co zapisaliśmy do pliku
 						break;
@@ -182,7 +160,7 @@ int main()
 			case 'k': 
 						break;
 
-			default:  cout << endl << "Bledny znak! Sprobuj jeszcze raz!" << endl;
+			default:  std::cout << std::endl << "Bledny znak! Sprobuj jeszcze raz!" << std::endl;
 						break;
 		}
 				

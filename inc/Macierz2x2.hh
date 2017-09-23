@@ -6,10 +6,8 @@
 #include <iostream>
 #include <iomanip>
 #include <cmath>
-//#define PI 3.14159265 
-constexpr double PI = atan2(0,-1);
 
-using namespace std; //tylko w cpp!!
+constexpr double PI = atan2(0,-1);       //zamiast #define PI 3.14159265 
 
 //template <int n, int m>
 class Macierz2x2 {

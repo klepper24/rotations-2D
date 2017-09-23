@@ -3,42 +3,36 @@
 
 void Prostokat::obroc(Macierz2x2 macierz)
 {
-	p1 = macierz * p1;    //petle!!
-	p2 = macierz * p2;
-	p3 = macierz * p3;
-	p4 = macierz * p4;
+	for(auto& i : punkty)	
+		i = macierz * i;	
 }
 
 void Prostokat::przesun(Wektor2D wektor)
 {
-	p1 = p1 + wektor;
-	p2 = p2 + wektor;
-	p3 = p3 + wektor;
-	p4 = p4 + wektor;
+	for(auto& i : punkty)	
+		i = i + wektor;
 }
 
 void Prostokat::sprawdzDlugoscPrzeciwleglychBokow()
 {	
-		
-	if((p2 - p1) == (p3 - p4))
-		cout << "Dluzsze przeciwlegle boki sa sobie rowne!" << endl;
-	else
-		cout << "Ups! Dluzsze przeciwlegle boki NIE sa sobie rowne! Uwaga na niedokladnosci!" << endl;
 
-	if((p3 - p2) == (p4 - p1))
-		cout << "Krotsze przeciwlegle boki sa sobie rowne!" << endl;
+	if((punkty[3] - punkty[0]) == (punkty[2] - punkty[1]))
+		std::cout << "Dluzsze przeciwlegle boki sa sobie rowne!" << std::endl;
 	else
-		cout << "Ups! Krotsze przeciwlegle boki NIE sa sobie rowne! Uwaga na niedokladnosci!" << endl;
+		std::cout << "Ups! Dluzsze przeciwlegle boki NIE sa sobie rowne! Uwaga na niedokladnosci!" << std::endl;
+
+	if((punkty[1] - punkty[0]) == (punkty[2] - punkty[3]))
+		std::cout << "Krotsze przeciwlegle boki sa sobie rowne!" << std::endl;
+	else
+		std::cout << "Ups! Krotsze przeciwlegle boki NIE sa sobie rowne! Uwaga na niedokladnosci!" << std::endl;
 }
 
-std::ostream& operator << (std::ostream &Strm, const Prostokat &Pr)
-{
-
-  Strm << setw(16) << fixed << setprecision(10) << Pr.p1
-       << setw(16) << fixed << setprecision(10) << Pr.p2
-  	   << setw(16) << fixed << setprecision(10) << Pr.p3 
-       << setw(16) << fixed << setprecision(10) << Pr.p4 << endl;		
+std::ostream& operator << (std::ostream& Strm, const Prostokat& Pr)
+{	
+	for(auto& i : Pr.punkty)  
+		Strm << std::setw(16) << std::fixed << std::setprecision(10) << i;		
 	
 	return Strm;
 }
+
 

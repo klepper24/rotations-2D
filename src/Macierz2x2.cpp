@@ -15,10 +15,10 @@ std::ostream& operator << (std::ostream &Strm, const Macierz2x2 &macierz)
 		
 	for(unsigned int i = 0; i < macierz.rozmiar; ++i)
 		for(unsigned int j = 0; j < macierz.rozmiar; ++j)
-  			Strm << setw(16) << fixed << setprecision(10) << macierz.mac[i][j];
+  			Strm << std::setw(16) << std::fixed << std::setprecision(10) << macierz.mac[i][j];
 
   	  
-    cout << endl;
+    Strm << std::endl;
 
 
 	return Strm;

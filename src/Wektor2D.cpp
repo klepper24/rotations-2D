@@ -58,9 +58,10 @@ std::istream& operator >> (std::istream &Strm, Wektor2D &wektor)
 
 std::ostream& operator << (std::ostream &Strm, const Wektor2D &wektor)
 {
-
-	  Strm << setw(16) << fixed << setprecision(10) << wektor.wek[0] 
-       << setw(16) << fixed << setprecision(10) << wektor.wek[1] << endl;
+	for(unsigned int i = 0; i < wektor.rozmiar; ++i)	
+	  Strm << std::setw(16) << std::fixed << std::setprecision(10) << wektor.wek[i];
+	
+	Strm << std::endl;
 
 	return Strm;
 } 
