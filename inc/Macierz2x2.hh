@@ -1,11 +1,10 @@
-
 #ifndef MACIERZ2X2_HH
 #define MACIERZ2X2_HH
-
 
 #include <iostream>
 #include <iomanip>
 #include <cmath>
+
 
 constexpr double PI = atan2(0,-1);       //zamiast #define PI 3.14159265 
 
@@ -16,7 +15,7 @@ public:
 
 	//Macierz2x2() {}
 	~Macierz2x2() {}
-	Macierz2x2(double arg);
+	Macierz2x2(double degree);
 	//operator () do odczytywania wartosci z macierzy, do zapisywania nalezaloby zrobic kolejny operator, patrz: 
 	double operator () (unsigned int a, unsigned int b) const
 	{

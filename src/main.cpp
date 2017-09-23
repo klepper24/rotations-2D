@@ -7,7 +7,6 @@
 #include "lacze_do_gnuplota.hh"
 
 
-
 void zapisWspolrzednychDoStrumienia(std::ostream& StrmWy, Prostokat &Pr)
 {
 
@@ -16,8 +15,6 @@ void zapisWspolrzednychDoStrumienia(std::ostream& StrmWy, Prostokat &Pr)
                              // Jeszcze raz zapisujemy pierwszy punkt,
                              // aby gnuplot narysowal zamkniętą linię.
 }
-
-
 
 /*!
  * Przyklad zapisu wspolrzednych zbioru punktow do pliku, z ktorego
@@ -48,7 +45,6 @@ bool zapisWspolrzednychDoPliku(const char *sNazwaPliku, Prostokat &Pr)
   return !StrmPlikowy.fail();
 }
 
-
 void obracanieProstokata(Prostokat& pro)
 {
 	std::cout << "Podaj wartosc kata obrotu w stopniach: " << std::endl;
@@ -64,7 +60,6 @@ void obracanieProstokata(Prostokat& pro)
 		
 }
 
-
 void przesuwanieProstokata(Prostokat& pro)
 {
 	std::cout << "Wprowadz wspolrzedne wektora translacji w postaci dwoch liczb, tzn. wspolrzednej x oraz wspolrzednej y: " << std::endl;
@@ -75,12 +70,10 @@ void przesuwanieProstokata(Prostokat& pro)
 	pro.przesun(wek);
 }
 
-
 void wyswietlanieWspolrzednych(Prostokat& pro)
 {
 	std::cout << pro;
 }
-
 
 void sprawdzenieBokow(Prostokat& pro)
 {
@@ -97,7 +90,6 @@ void wyswietlMenu()
 			 << "m - wyswietl menu" << std::endl
 			 << "k - koniec dzialania programu" << std::endl;
 }
-
 
 int main()
 {

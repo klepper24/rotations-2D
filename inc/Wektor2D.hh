@@ -5,7 +5,6 @@
 #include "Macierz2x2.hh"
 
 
-
 class Wektor2D 
 {
 	

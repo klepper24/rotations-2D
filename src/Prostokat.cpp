@@ -13,7 +13,7 @@ void Prostokat::przesun(Wektor2D wektor)
 		i = i + wektor;
 }
 
-void Prostokat::sprawdzDlugoscPrzeciwleglychBokow()
+bool Prostokat::sprawdzDlugoscPrzeciwleglychBokow()
 {	
 
 	if((punkty[3] - punkty[0]) == (punkty[2] - punkty[1]))
@@ -29,7 +29,7 @@ void Prostokat::sprawdzDlugoscPrzeciwleglychBokow()
 
 std::ostream& operator << (std::ostream& Strm, const Prostokat& Pr)
 {	
-	for(auto& i : Pr.punkty)  
+	for(const auto& i : Pr.punkty)  
 		Strm << std::setw(16) << std::fixed << std::setprecision(10) << i;		
 	
 	return Strm;
